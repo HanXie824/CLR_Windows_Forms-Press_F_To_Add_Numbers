@@ -34,6 +34,10 @@ namespace CLRWindowsFormsPressFToAddNumbers {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Button^ button_stop;
+	private: System::Windows::Forms::Button^ button_continue;
+	private: System::Windows::Forms::Label^ label_number;
+	protected:
 
 	private:
 		/// <summary>
@@ -48,11 +52,64 @@ namespace CLRWindowsFormsPressFToAddNumbers {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->components = gcnew System::ComponentModel::Container();
-			this->Size = System::Drawing::Size(300,300);
-			this->Text = L"MyForm";
-			this->Padding = System::Windows::Forms::Padding(0);
+			this->button_stop = (gcnew System::Windows::Forms::Button());
+			this->button_continue = (gcnew System::Windows::Forms::Button());
+			this->label_number = (gcnew System::Windows::Forms::Label());
+			this->SuspendLayout();
+			// 
+			// button_stop
+			// 
+			this->button_stop->BackColor = System::Drawing::Color::IndianRed;
+			this->button_stop->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->button_stop->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->button_stop->Location = System::Drawing::Point(12, 12);
+			this->button_stop->Name = L"button_stop";
+			this->button_stop->Size = System::Drawing::Size(200, 80);
+			this->button_stop->TabIndex = 0;
+			this->button_stop->Text = L"暫停 加1";
+			this->button_stop->UseVisualStyleBackColor = false;
+			// 
+			// button_continue
+			// 
+			this->button_continue->BackColor = System::Drawing::Color::RoyalBlue;
+			this->button_continue->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->button_continue->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->button_continue->Location = System::Drawing::Point(12, 152);
+			this->button_continue->Name = L"button_continue";
+			this->button_continue->Size = System::Drawing::Size(200, 80);
+			this->button_continue->TabIndex = 1;
+			this->button_continue->Text = L"繼續 加1";
+			this->button_continue->UseVisualStyleBackColor = false;
+			// 
+			// label_number
+			// 
+			this->label_number->Font = (gcnew System::Drawing::Font(L"微軟正黑體", 48, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(136)));
+			this->label_number->Location = System::Drawing::Point(233, 12);
+			this->label_number->Name = L"label_number";
+			this->label_number->Size = System::Drawing::Size(233, 220);
+			this->label_number->TabIndex = 2;
+			this->label_number->Text = L"0";
+			this->label_number->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
+			// 
+			// MyForm
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(25, 50);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::SystemColors::ControlDark;
+			this->ClientSize = System::Drawing::Size(478, 244);
+			this->Controls->Add(this->label_number);
+			this->Controls->Add(this->button_continue);
+			this->Controls->Add(this->button_stop);
+			this->Font = (gcnew System::Drawing::Font(L"微軟正黑體", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(136)));
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->KeyPreview = true;
+			this->Margin = System::Windows::Forms::Padding(8, 8, 8, 8);
+			this->MaximizeBox = false;
+			this->Name = L"MyForm";
+			this->Text = L"按F鍵 加1";
+			this->ResumeLayout(false);
+
 		}
 #pragma endregion
 	};
