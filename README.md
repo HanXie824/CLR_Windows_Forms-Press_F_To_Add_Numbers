@@ -13,7 +13,7 @@
 ## C++ CLR Windows Form 安裝教學
 
 ### 一、 環境安裝
-1. 安裝【Visual Studio】 (https://visualstudio.microsoft.com)。
+1. 安裝【Visual Studio】 (https://visualstudio.microsoft.com) 。
 
 2. 安裝過程中，在『工作負載』的『傳統型與行動裝置』中，把『使用 C++ 的桌面開發』的選項打勾。
 <img src="./readme_img/1-2_使用C++的桌面開發.png" />
@@ -91,38 +91,40 @@ void main(array<String^>^ args) {
 
 3. 對視窗『MyForm』新增『KeyDown』事件，並輸入下面程式碼：
 <img src="./readme_img/5-MyForm.h-3_事件_KeyDown.png" />
-	```c++
-	/* 鍵盤按鍵被按下的事件 */
-	private: System::Void MyForm_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) 
-	{
-		int number = Convert::ToInt32(label_number->Text);
 
-		if (e->KeyCode == Keys::F)
-		{
-			number += 1;
-			label_number->Text = number.ToString();
-		}
+```c++
+/* 鍵盤按鍵被按下的事件 */
+private: System::Void MyForm_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) 
+{
+	int number = Convert::ToInt32(label_number->Text);
+	if (e->KeyCode == Keys::F)
+	{
+		number += 1;
+		label_number->Text = number.ToString();
 	}
-	```
+}
+```
 
 4. 對按鈕『button_stop』新增『Click』事件，並輸入下面程式碼：
 <img src="./readme_img/5-MyForm.h-4_button_stop_Click.png" />
-	```c++
-	/* 按鈕【暫停 加1】被點擊的事件 */
-	private: System::Void button_stop_Click(System::Object^ sender, System::EventArgs^ e)
-	{
-		MyForm::KeyPreview = false; // 不接收按鍵事件
-	}
-	```
+
+```c++
+/* 按鈕【暫停 加1】被點擊的事件 */
+private: System::Void button_stop_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	MyForm::KeyPreview = false; // 不接收按鍵事件
+}
+```
 
 5. 對按鈕『button_continue』新增『Click』事件，並輸入下面程式碼：
 <img src="./readme_img/5-MyForm.h-5_button_continue_Click.png" />
-	```c++
-	/* 按鈕【繼續 加1】被點擊的事件 */
-	private: System::Void button_continue_Click(System::Object^ sender, System::EventArgs^ e)
-	{
-		MyForm::KeyPreview = true; // 接收按鍵事件
-	}
-	```
+
+```c++
+/* 按鈕【繼續 加1】被點擊的事件 */
+private: System::Void button_continue_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	MyForm::KeyPreview = true; // 接收按鍵事件
+}
+```
 
 <hr>
